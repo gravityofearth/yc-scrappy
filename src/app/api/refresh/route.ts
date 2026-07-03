@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import * as cheerio from "cheerio";
-import playwright from "playwright";
 import { connectDB } from "@/lib/mongodb";
 import { launchBrowser } from "@/lib/playwright";
 import { lastSeenToDaysAgo } from "@/lib/lastSeenUtils";
