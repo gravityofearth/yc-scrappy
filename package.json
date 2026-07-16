@@ -7,11 +7,12 @@
     "build": "next build",
     "start": "next start -p 5555",
     "lint": "next lint",
-    "postinstall": "playwright install chromium chromium-headless-shell",
+    "postinstall": "node -e \"if(!process.env.VERCEL){require('child_process').execSync('npx playwright install chromium chromium-headless-shell',{stdio:'inherit'})}\"",
     "playwright:install": "playwright install chromium chromium-headless-shell",
     "bulk-scrape": "npx tsx scripts/bulk-scrape-contacted.ts"
   },
   "dependencies": {
+    "@sparticuz/chromium": "^149.0.0",
     "axios": "^1.7.7",
     "cheerio": "^1.0.0",
     "framer-motion": "^11.13.1",
@@ -20,6 +21,7 @@
     "mongoose": "^8.8.3",
     "next": "^15.4.4",
     "next-themes": "^0.4.3",
+    "playwright-core": "^1.54.1",
     "puppeteer": "^23.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

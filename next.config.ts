@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  serverExternalPackages: ["@sparticuz/chromium", "playwright-core", "playwright"],
   webpack: (config, { dev }) => {
     if (dev) {
       // Avoid Watchpack scanning Windows system folders (e.g. D:\System Volume Information)

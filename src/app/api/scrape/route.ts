@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import * as cheerio from "cheerio";
-import playwright from "playwright";
+import type { Page } from "playwright-core";
 import { connectDB } from "@/lib/mongodb";
 import { launchBrowser } from "@/lib/playwright";
 import { lastSeenToDaysAgo } from "@/lib/lastSeenUtils";
@@ -25,7 +25,7 @@ async function runScrapeWithProgress(
       },
     });
 
-    const applyPageRoutes = async (p: playwright.Page) => {
+    const applyPageRoutes = async (p: Page) => {
       await p.route("**/*.{png,jpg,jpeg,gif,css}", (route) => route.abort());
       await p.route("**/*.{woff,woff2,ttf,otf}", (route) => route.abort());
       await p.route("**/{analytics,tracking,advertisement}/**", (route) =>

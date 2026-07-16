@@ -1,0 +1,20 @@
+{
+  "functions": {
+    "src/app/api/scrape/route.ts": {
+      "maxDuration": 300,
+      "memory": 1024
+    },
+    "src/app/api/scrape-one/route.ts": {
+      "maxDuration": 60,
+      "memory": 1024
+    },
+    "src/app/api/refresh/route.ts": {
+      "maxDuration": 300,
+      "memory": 1024
+    },
+    "src/app/api/profiles/refresh-uncontacted/route.ts": {
+      "maxDuration": 300,
+      "memory": 1024
+    }
+  }
+}
