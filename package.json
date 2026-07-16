@@ -12,7 +12,7 @@
     "bulk-scrape": "npx tsx scripts/bulk-scrape-contacted.ts"
   },
   "dependencies": {
-    "@sparticuz/chromium": "^149.0.0",
+    "@sparticuz/chromium-min": "^149.0.0",
     "axios": "^1.7.7",
     "cheerio": "^1.0.0",
     "framer-motion": "^11.13.1",

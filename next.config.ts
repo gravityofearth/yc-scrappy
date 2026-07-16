@@ -1,8 +1,26 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  serverExternalPackages: ["@sparticuz/chromium", "playwright-core", "playwright"],
-  webpack: (config, { dev }) => {
+  serverExternalPackages: [
+    "@sparticuz/chromium-min",
+    "playwright-core",
+    "playwright",
+  ],
+  webpack: (config, { dev, isServer }) => {
+    if (isServer) {
+      const externals = Array.isArray(config.externals)
+        ? config.externals
+        : config.externals
+          ? [config.externals]
+          : [];
+      config.externals = [
+        ...externals,
+        "@sparticuz/chromium-min",
+        "playwright-core",
+        "playwright",
+      ];
+    }
+
     if (dev) {
       // Avoid Watchpack scanning Windows system folders (e.g. D:\System Volume Information)
       // which causes EINVAL and can trigger "Array buffer allocation failed"
